@@ -1,0 +1,14 @@
+{
+  "name": "sickbot",
+  "version": "1.0.0",
+  "description": "its sick",
+  "main": "selfiebabie.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "sick"
+  ],
+  "author": "sick boys",
+  "license": "ISC"
+}
