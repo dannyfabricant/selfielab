@@ -21,6 +21,12 @@ function start() {
 	imgurls = [];
 	usernames = [];
 	T.get('search/tweets', { q: '#selfie', count: 60, result_type: 'recent' }, function (err, data, response){
+		if (err) {
+			console.log("Something went wrong!");
+			console.log(err);
+		} else {
+			console.log("It worked!");
+		}
 		// console.log(data.statuses[3].entities.media[0].media_url); //this works
 		// console.log(data.statuses[1].user.screen_name);
 		for (var i = 0; i < data.statuses.length; i++) {
@@ -33,8 +39,9 @@ function start() {
 		}
 		if (imgurls.length < 10) {
 			console.log(imgurls.length);
-			delay(10000);
-			start();
+			setTimeout( function() {
+				start();
+			}, 10000);
 		} else {
 			forfile = imgurls.join();
 			forfile = forfile.replace(/,/g, '\n');
@@ -52,7 +59,7 @@ function start() {
 				    }
 				    console.log("urls saved!");
 			    	var cmd = 'processing-java --sketch=`pwd`/faceswap2 --run';
-					exec(cmd, upload);
+					// exec(cmd, upload);
 				});
 			});
 		}
